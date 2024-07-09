@@ -6,26 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMyListTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
         Schema::create('my_list', function (Blueprint $table) {
-            $table->id();
+            $table->id('todoId');
+            $table->unsignedBigInteger('userID');
             $table->string('description');
             $table->string('activeStatus');
             $table->timestamps();
+
+            $table->foreign('userID')->references('userID')->on('users_lists')->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('my_list');

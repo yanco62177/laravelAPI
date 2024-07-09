@@ -17,6 +17,23 @@ class MyListController extends Controller
         ]);
     }
 
+    public function findByUser($userID)
+{
+    $userItems = MyList::where('userID', $userID)->get();
+
+    if ($userItems->isEmpty()) {
+        return response()->json([
+            'success' => false,
+            'message' => 'No items found for this user'
+        ], 404);
+    }
+
+    return response()->json([
+        'success' => true,
+        'data' => $userItems
+    ]);
+}
+
     public function store(Request $request)
     {
         $request->validate([

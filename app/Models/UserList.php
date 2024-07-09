@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MyList extends Model
+class UserList extends Model
 {
     use HasFactory;
 
-    protected $table = 'my_list';
+    protected $table = 'users_lists';
 
     protected $fillable = [
-        'userID',
-        'description',
-        'activeStatus',
+        'name',
+        'username',
+        'password',
     ];
 }

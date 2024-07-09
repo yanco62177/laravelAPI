@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyListController;
+use App\Http\Controllers\UserListsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,13 @@ Route::delete('/my-list/{id}', [MyListController::class, 'destroy']);
 
 Route::put('/updateTodo/{id}', [MyListController::class, 'update']);
 Route::put('/updateStatus/{id}', [MyListController::class, 'updateStatus']);
+
+Route::get('/allUsers', [UserListsController::class, 'allUsers']);
+
+Route::get('/findByUser/{userID}', [MyListController::class, 'findByUser']);
+Route::post('/login', [UserListsController::class, 'login']);
+Route::post('/signup', [UserListsController::class, 'signup']);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
