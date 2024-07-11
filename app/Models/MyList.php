@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class MyList extends Model
 {
     use HasFactory;
-
     /**
      * The table associated with the model.
      *
@@ -22,6 +21,7 @@ class MyList extends Model
      * @var array
      */
     protected $fillable = [
+        'userID',
         'description',
         'activeStatus',
     ];

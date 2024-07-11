@@ -14,10 +14,13 @@ class CreateMyListTable extends Migration
     public function up()
     {
         Schema::create('my_list', function (Blueprint $table) {
-            $table->id();
+            $table->id('todoId');
+            $table->unsignedBigInteger('userID');
             $table->string('description');
             $table->string('activeStatus');
             $table->timestamps();
+
+            $table->foreign('userID')->references('userID')->on('users_lists')->onDelete('cascade');
         });
     }
 
