@@ -6,7 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMyListTable extends Migration
 {
-    
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('my_list', function (Blueprint $table) {
@@ -20,6 +24,11 @@ class CreateMyListTable extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('my_list');
